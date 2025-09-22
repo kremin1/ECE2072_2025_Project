@@ -1,0 +1,20 @@
+start:
+    addi r0, 0 // constant 0
+    addi r1, 1 // constant 1
+    addi r2, 1 // Input A
+    addi r3, 1 // Input B
+    addi r4, 23 // how many Fibonacci numbers to display
+                // 23 for signed representation, 24 for unsigned
+loop:
+    bez r4, end
+    disp r2
+    sub r4, r1
+    bez r4, end
+    add r3, r2
+    disp r3
+    sub r4, r1
+    bez r4, end
+    add r2, r3
+    bez r0, loop
+end:
+    bez r0, end
