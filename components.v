@@ -67,6 +67,7 @@ module multiplexer(SignExtDin, R0, R1, R2, R3, R4, R5, R6, R7, G, sel, Bus);
             default: Bus = 16'b0;
         endcase
     end
+endmodule
 
 module ALU (input_a, input_b, alu_op, result);
     /* 
@@ -88,10 +89,10 @@ module ALU (input_a, input_b, alu_op, result);
             3'b001: result = input_a + input_b; // Addition
             3'b010: result = input_a - input_b; // Subtraction
             3'b011: begin // Signed shift
-                if (input_a[15] == 1'b0)
-                    result = input_b << input_a; // Shift left if input_a is positive
-                else
-                    result = input_b >>> (~input_a + 1'b1); // Shift right if input_a is negative
+                if ($signed(input_a) >= 0)
+        			result = input_b <<< $signed(input_a);   // left shift
+    			else
+        			result = input_b >>> -$signed(input_a);  // right shift
             end
             default: result = 16'b0; // Don't care
         endcase
@@ -127,6 +128,9 @@ module register_n(data_in, r_in, clk, Q, rst);
         else if (r_in) begin
             Q <= data_in;           // load new data
         end
+		else begin
+    	Q <= Q;   // hold previous value 
+
         // else: retain previous value
     end
 
