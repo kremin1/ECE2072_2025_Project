@@ -19,14 +19,28 @@ endmodule
 
 
 module tick_FSM(rst, clk, enable, tick);
-	/* 
-	 * This module implements a tick FSM that will be used to
-	 * control the actions of the control unit
-	 */
+    /* 
+     * This module implements a tick FSM that will be used to
+     * control the actions of the control unit
+     * One-hot encoding: tick = 4'b0001, 4'b0010, 4'b0100, 4'b1000
+     */
 
-	// TODO: Declare inputs and outputs
-	
-    // TODO: implement FSM
+    input rst, clk, enable;
+    output reg [3:0] tick;
+
+    always @(posedge clk or posedge rst) begin
+        if (rst)
+            tick <= 4'b0001; // Start at tick 1
+        else if (enable) begin
+            case (tick)
+                4'b0001: tick <= 4'b0010; // Tick 2
+                4'b0010: tick <= 4'b0100; // Tick 3
+                4'b0100: tick <= 4'b1000; // Tick 4
+                4'b1000: tick <= 4'b0001; // Back to Tick 1
+                default: tick <= 4'b0001; // Default to Tick 1 on error
+            endcase
+        end
+    end
 endmodule
 
 module multiplexer(SignExtDin, R0, R1, R2, R3, R4, R5, R6, R7, G, sel, Bus);
