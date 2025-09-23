@@ -101,19 +101,34 @@ module ALU (input_a, input_b, alu_op, result);
 
 module register_n(data_in, r_in, clk, Q, rst);
 
+    // To set parameter N during instantiation, you can use:
+    // register_n #(.N(num_bits)) reg_IR(.....), 
+    // where num_bits is how many bits you want to set N to
+    // and "..." is your usual input/output signals
 
-	// To set parameter N during instantiation, you can use:
-	// register_n #(.N(num_bits)) reg_IR(.....), 
-	// where num_bits is how many bits you want to set N to
-	// and "..." is your usual input/output signals
+    parameter N = 16;
 
-	parameter N = 16;
+    /* 
+     * This module implements registers that will be used in the processor.
+     */
 
-	/* 
-	 * This module implements registers that will be used in the processor.
-	 */
-	// TODO: Declare inputs, outputs, and parameter:
-	
-	// TODO: Implement register logic:
+    // Declare inputs and outputs
+    input clk;
+    input rst;
+    input r_in;
+    input [N-1:0] data_in;
+    output reg [N-1:0] Q;
+
+    // Implement register logic
+    always @(posedge clk) begin
+        if (rst) begin
+            Q <= {N{1'b0}};         // reset register to 0
+        end 
+        else if (r_in) begin
+            Q <= data_in;           // load new data
+        end
+        // else: retain previous value
+    end
+
 endmodule
 
