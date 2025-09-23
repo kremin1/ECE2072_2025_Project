@@ -55,14 +55,33 @@ module multiplexer(SignExtDin, R0, R1, R2, R3, R4, R5, R6, R7, G, sel, Bus);
 endmodule
 
 module ALU (input_a, input_b, alu_op, result);
-	/* 
-	 * This module implements the arithmetic logic unit of the processor.
-	 */
-	// TODO: declare inputs and outputs
+    /* 
+     * This module implements the arithmetic logic unit of the processor.
+     * alu_op:
+     * 000: input_a * input_b
+     * 001: input_a + input_b
+     * 010: input_a - input_b
+     * 011: input_b shifted by input_a (signed shift)
+     * 100-111: don't care (output 0)
+     */
+    input [15:0] input_a, input_b;
+    input [2:0] alu_op;
+    output reg [15:0] result;
 
-
-	// TODO: Implement ALU Logic:
-endmodule
+    always @(*) begin
+        case (alu_op)
+            3'b000: result = input_a * input_b; // Multiplication
+            3'b001: result = input_a + input_b; // Addition
+            3'b010: result = input_a - input_b; // Subtraction
+            3'b011: begin // Signed shift
+                if (input_a[15] == 1'b0)
+                    result = input_b << input_a; // Shift left if input_a is positive
+                else
+                    result = input_b >>> (~input_a + 1'b1); // Shift right if input_a is negative
+            end
+            default: result = 16'b0; // Don't care
+        endcase
+    end
 
 
 
