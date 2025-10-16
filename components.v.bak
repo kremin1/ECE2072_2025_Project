@@ -133,7 +133,6 @@ module register_n(data_in, r_in, clk, Q, rst);
 
         // else: retain previous value
     end
-end
 
 endmodule
 
