@@ -1,5 +1,5 @@
 Analysis & Elaboration report for ece_2072_project
-Fri Oct 17 11:11:18 2025
+Fri Oct 17 11:35:22 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -44,7 +44,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                                   ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status      ; Successful - Fri Oct 17 11:11:18 2025       ;
+; Analysis & Elaboration Status      ; Successful - Fri Oct 17 11:35:22 2025       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; ece_2072_project                            ;
 ; Top-level Entity Name              ; components_tb                               ;
@@ -245,7 +245,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Fri Oct 17 11:11:08 2025
+    Info: Processing started: Fri Oct 17 11:35:11 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ece_2072_project -c ece_2072_project --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
@@ -258,61 +258,56 @@ Info (12021): Found 5 design units, including 5 entities, in source file compone
     Info (12023): Found entity 4: ALU File: C:/ECE2072/Project/components.v Line: 72
     Info (12023): Found entity 5: register_n File: C:/ECE2072/Project/components.v Line: 103
 Info (12127): Elaborating entity "components_tb" for the top level hierarchy
-Info (10648): Verilog HDL Display System Task info at components_tb.v(71): ==== sign_extend tests ==== File: C:/ECE2072/Project/components_tb.v Line: 71
-Info (10648): Verilog HDL Display System Task info at components_tb.v(73): sign_extend +5: ................ (should be 0000000000000101) File: C:/ECE2072/Project/components_tb.v Line: 73
-Info (10648): Verilog HDL Display System Task info at components_tb.v(75): sign_extend -5: ................ (should be 1111111111111011) File: C:/ECE2072/Project/components_tb.v Line: 75
-Info (10648): Verilog HDL Display System Task info at components_tb.v(77): sign_extend 0: ................ (should be 0000000000000000) File: C:/ECE2072/Project/components_tb.v Line: 77
-Info (10648): Verilog HDL Display System Task info at components_tb.v(79): sign_extend -256: ................ (should be 1111111110000000) File: C:/ECE2072/Project/components_tb.v Line: 79
-Info (10648): Verilog HDL Display System Task info at components_tb.v(81): sign_extend +255: ................ (should be 0000000011111111) File: C:/ECE2072/Project/components_tb.v Line: 81
-Info (10648): Verilog HDL Display System Task info at components_tb.v(86): ==== tick_FSM tests ==== File: C:/ECE2072/Project/components_tb.v Line: 86
-Info (10648): Verilog HDL Display System Task info at components_tb.v(88): After reset, tick = .... (should be 0001) File: C:/ECE2072/Project/components_tb.v Line: 88
-Info (10648): Verilog HDL Display System Task info at components_tb.v(91): Tick after 1 clock: .... (should be 0010) File: C:/ECE2072/Project/components_tb.v Line: 91
-Info (10648): Verilog HDL Display System Task info at components_tb.v(93): Tick after 2 clocks: .... (should be 0100) File: C:/ECE2072/Project/components_tb.v Line: 93
-Info (10648): Verilog HDL Display System Task info at components_tb.v(95): Tick after 3 clocks: .... (should be 1000) File: C:/ECE2072/Project/components_tb.v Line: 95
-Info (10648): Verilog HDL Display System Task info at components_tb.v(97): Tick after 4 clocks: .... (should wrap to 0001) File: C:/ECE2072/Project/components_tb.v Line: 97
-Info (10648): Verilog HDL Display System Task info at components_tb.v(99): Tick with enable low: .... (should remain 0001) File: C:/ECE2072/Project/components_tb.v Line: 99
-Info (10648): Verilog HDL Display System Task info at components_tb.v(104): ==== multiplexer tests ==== File: C:/ECE2072/Project/components_tb.v Line: 104
-Info (10648): Verilog HDL Display System Task info at components_tb.v(107): MUX sel=0000: Bus=0000 (should be AAAA, SignExtDin) File: C:/ECE2072/Project/components_tb.v Line: 107
-Info (10648): Verilog HDL Display System Task info at components_tb.v(108): MUX sel=0001: Bus=0000 (should be 0001, R0) File: C:/ECE2072/Project/components_tb.v Line: 108
-Info (10648): Verilog HDL Display System Task info at components_tb.v(109): MUX sel=0010: Bus=0000 (should be 0002, R1) File: C:/ECE2072/Project/components_tb.v Line: 109
-Info (10648): Verilog HDL Display System Task info at components_tb.v(110): MUX sel=0011: Bus=0000 (should be 0003, R2) File: C:/ECE2072/Project/components_tb.v Line: 110
-Info (10648): Verilog HDL Display System Task info at components_tb.v(111): MUX sel=0100: Bus=0000 (should be 0004, R3) File: C:/ECE2072/Project/components_tb.v Line: 111
-Info (10648): Verilog HDL Display System Task info at components_tb.v(112): MUX sel=0101: Bus=0000 (should be 0005, R4) File: C:/ECE2072/Project/components_tb.v Line: 112
-Info (10648): Verilog HDL Display System Task info at components_tb.v(113): MUX sel=0110: Bus=0000 (should be 0006, R5) File: C:/ECE2072/Project/components_tb.v Line: 113
-Info (10648): Verilog HDL Display System Task info at components_tb.v(114): MUX sel=0111: Bus=0000 (should be 0007, R6) File: C:/ECE2072/Project/components_tb.v Line: 114
-Info (10648): Verilog HDL Display System Task info at components_tb.v(115): MUX sel=1000: Bus=0000 (should be 0008, R7) File: C:/ECE2072/Project/components_tb.v Line: 115
-Info (10648): Verilog HDL Display System Task info at components_tb.v(116): MUX sel=1001: Bus=0000 (should be FFFF, G) File: C:/ECE2072/Project/components_tb.v Line: 116
-Info (10648): Verilog HDL Display System Task info at components_tb.v(117): MUX sel=1010: Bus=0000 (should be 0000, invalid select) File: C:/ECE2072/Project/components_tb.v Line: 117
-Info (10648): Verilog HDL Display System Task info at components_tb.v(122): ==== ALU tests ==== File: C:/ECE2072/Project/components_tb.v Line: 122
-Info (10648): Verilog HDL Display System Task info at components_tb.v(124): ALU MUL: 10*3 =      0 (should be 30) File: C:/ECE2072/Project/components_tb.v Line: 124
-Info (10648): Verilog HDL Display System Task info at components_tb.v(126): ALU ADD: 10+3 =      0 (should be 13) File: C:/ECE2072/Project/components_tb.v Line: 126
-Info (10648): Verilog HDL Display System Task info at components_tb.v(128): ALU SUB: 10-3 =      0 (should be 7) File: C:/ECE2072/Project/components_tb.v Line: 128
-Info (10648): Verilog HDL Display System Task info at components_tb.v(130): ALU SHIFT LEFT: 15<<2 = ................ (should be 0000000000111100) File: C:/ECE2072/Project/components_tb.v Line: 130
-Warning (10230): Verilog HDL assignment warning at components_tb.v(131): truncated value with size 32 to match size of target (16) File: C:/ECE2072/Project/components_tb.v Line: 131
-Info (10648): Verilog HDL Display System Task info at components_tb.v(132): ALU SHIFT RIGHT: 15>>2 = ................ (should be 0000000000000011) File: C:/ECE2072/Project/components_tb.v Line: 132
-Info (10648): Verilog HDL Display System Task info at components_tb.v(134): ALU don't care: result =      0 (should be 0) File: C:/ECE2072/Project/components_tb.v Line: 134
-Info (10648): Verilog HDL Display System Task info at components_tb.v(139): ==== register_n tests ==== File: C:/ECE2072/Project/components_tb.v Line: 139
-Info (10648): Verilog HDL Display System Task info at components_tb.v(141): register_n after reset: Q=0000 (should be 0000) File: C:/ECE2072/Project/components_tb.v Line: 141
-Info (10648): Verilog HDL Display System Task info at components_tb.v(143): register_n after load: Q=0000 (should be 1234) File: C:/ECE2072/Project/components_tb.v Line: 143
-Info (10648): Verilog HDL Display System Task info at components_tb.v(145): register_n hold: Q=0000 (should still be 1234) File: C:/ECE2072/Project/components_tb.v Line: 145
-Info (10648): Verilog HDL Display System Task info at components_tb.v(147): register_n load new: Q=0000 (should be 5678) File: C:/ECE2072/Project/components_tb.v Line: 147
-Info (10648): Verilog HDL Display System Task info at components_tb.v(149): 8-bit register_n after reset: Q=00 (should be 00) File: C:/ECE2072/Project/components_tb.v Line: 149
-Info (10648): Verilog HDL Display System Task info at components_tb.v(151): 8-bit register_n after load: Q=00 (should be AA) File: C:/ECE2072/Project/components_tb.v Line: 151
-Info (10648): Verilog HDL Display System Task info at components_tb.v(153): 8-bit register_n hold: Q=00 (should still be AA) File: C:/ECE2072/Project/components_tb.v Line: 153
-Info (10648): Verilog HDL Display System Task info at components_tb.v(155): 8-bit register_n load new: Q=00 (should be 55) File: C:/ECE2072/Project/components_tb.v Line: 155
-Info (12128): Elaborating entity "sign_extend" for hierarchy "sign_extend:uut_sign_extend" File: C:/ECE2072/Project/components_tb.v Line: 15
-Info (12128): Elaborating entity "tick_FSM" for hierarchy "tick_FSM:uut_tick" File: C:/ECE2072/Project/components_tb.v Line: 20
+Info (10648): Verilog HDL Display System Task info at components_tb.v(82): sign_extend +5: ................ (should be 0000000000000101) File: C:/ECE2072/Project/components_tb.v Line: 82
+Info (10648): Verilog HDL Display System Task info at components_tb.v(85): sign_extend -5: ................ (should be 1111111111111011) File: C:/ECE2072/Project/components_tb.v Line: 85
+Info (10648): Verilog HDL Display System Task info at components_tb.v(88): sign_extend 0: ................ (should be 0000000000000000) File: C:/ECE2072/Project/components_tb.v Line: 88
+Info (10648): Verilog HDL Display System Task info at components_tb.v(91): sign_extend -256: ................ (should be 1111111110000000) File: C:/ECE2072/Project/components_tb.v Line: 91
+Info (10648): Verilog HDL Display System Task info at components_tb.v(94): sign_extend +255: ................ (should be 0000000011111111) File: C:/ECE2072/Project/components_tb.v Line: 94
+Info (10648): Verilog HDL Display System Task info at components_tb.v(101): After reset, tick = .... (should be 0001) File: C:/ECE2072/Project/components_tb.v Line: 101
+Info (10648): Verilog HDL Display System Task info at components_tb.v(105): Tick after 1 clock: .... (should be 0010) File: C:/ECE2072/Project/components_tb.v Line: 105
+Info (10648): Verilog HDL Display System Task info at components_tb.v(107): Tick after 2 clocks: .... (should be 0100) File: C:/ECE2072/Project/components_tb.v Line: 107
+Info (10648): Verilog HDL Display System Task info at components_tb.v(109): Tick after 3 clocks: .... (should be 1000) File: C:/ECE2072/Project/components_tb.v Line: 109
+Info (10648): Verilog HDL Display System Task info at components_tb.v(111): Tick after 4 clocks: .... (should wrap to 0001) File: C:/ECE2072/Project/components_tb.v Line: 111
+Info (10648): Verilog HDL Display System Task info at components_tb.v(114): Tick with enable low: .... (should remain 0001) File: C:/ECE2072/Project/components_tb.v Line: 114
+Info (10648): Verilog HDL Display System Task info at components_tb.v(123): MUX sel=0000: Bus=0000 (should be AAAA, SignExtDin) File: C:/ECE2072/Project/components_tb.v Line: 123
+Info (10648): Verilog HDL Display System Task info at components_tb.v(124): MUX sel=0001: Bus=0000 (should be 0001, R0) File: C:/ECE2072/Project/components_tb.v Line: 124
+Info (10648): Verilog HDL Display System Task info at components_tb.v(125): MUX sel=0010: Bus=0000 (should be 0002, R1) File: C:/ECE2072/Project/components_tb.v Line: 125
+Info (10648): Verilog HDL Display System Task info at components_tb.v(126): MUX sel=0011: Bus=0000 (should be 0003, R2) File: C:/ECE2072/Project/components_tb.v Line: 126
+Info (10648): Verilog HDL Display System Task info at components_tb.v(127): MUX sel=0100: Bus=0000 (should be 0004, R3) File: C:/ECE2072/Project/components_tb.v Line: 127
+Info (10648): Verilog HDL Display System Task info at components_tb.v(128): MUX sel=0101: Bus=0000 (should be 0005, R4) File: C:/ECE2072/Project/components_tb.v Line: 128
+Info (10648): Verilog HDL Display System Task info at components_tb.v(129): MUX sel=0110: Bus=0000 (should be 0006, R5) File: C:/ECE2072/Project/components_tb.v Line: 129
+Info (10648): Verilog HDL Display System Task info at components_tb.v(130): MUX sel=0111: Bus=0000 (should be 0007, R6) File: C:/ECE2072/Project/components_tb.v Line: 130
+Info (10648): Verilog HDL Display System Task info at components_tb.v(131): MUX sel=1000: Bus=0000 (should be 0008, R7) File: C:/ECE2072/Project/components_tb.v Line: 131
+Info (10648): Verilog HDL Display System Task info at components_tb.v(132): MUX sel=1001: Bus=0000 (should be FFFF, G) File: C:/ECE2072/Project/components_tb.v Line: 132
+Info (10648): Verilog HDL Display System Task info at components_tb.v(134): MUX sel=1010: Bus=0000 (should be 0000, invalid select) File: C:/ECE2072/Project/components_tb.v Line: 134
+Info (10648): Verilog HDL Display System Task info at components_tb.v(141): ALU MUL: 10*3 =      0 (should be 30) File: C:/ECE2072/Project/components_tb.v Line: 141
+Info (10648): Verilog HDL Display System Task info at components_tb.v(144): ALU ADD: 10+3 =      0 (should be 13) File: C:/ECE2072/Project/components_tb.v Line: 144
+Info (10648): Verilog HDL Display System Task info at components_tb.v(147): ALU SUB: 10-3 =      0 (should be 7) File: C:/ECE2072/Project/components_tb.v Line: 147
+Info (10648): Verilog HDL Display System Task info at components_tb.v(150): ALU SHIFT LEFT: 15<<2 = ................ (should be 0000000000111100) File: C:/ECE2072/Project/components_tb.v Line: 150
+Warning (10230): Verilog HDL assignment warning at components_tb.v(152): truncated value with size 32 to match size of target (16) File: C:/ECE2072/Project/components_tb.v Line: 152
+Info (10648): Verilog HDL Display System Task info at components_tb.v(153): ALU SHIFT RIGHT: 15>>2 = ................ (should be 0000000000000011) File: C:/ECE2072/Project/components_tb.v Line: 153
+Info (10648): Verilog HDL Display System Task info at components_tb.v(156): ALU don't care: result =      0 (should be 0) File: C:/ECE2072/Project/components_tb.v Line: 156
+Info (10648): Verilog HDL Display System Task info at components_tb.v(163): register_n after reset: Q=0000 (should be 0000) File: C:/ECE2072/Project/components_tb.v Line: 163
+Info (10648): Verilog HDL Display System Task info at components_tb.v(166): register_n after load: Q=0000 (should be 1234) File: C:/ECE2072/Project/components_tb.v Line: 166
+Info (10648): Verilog HDL Display System Task info at components_tb.v(169): register_n hold: Q=0000 (should still be 1234) File: C:/ECE2072/Project/components_tb.v Line: 169
+Info (10648): Verilog HDL Display System Task info at components_tb.v(172): register_n load new: Q=0000 (should be 5678) File: C:/ECE2072/Project/components_tb.v Line: 172
+Info (10648): Verilog HDL Display System Task info at components_tb.v(175): 8-bit register_n after reset: Q=00 (should be 00) File: C:/ECE2072/Project/components_tb.v Line: 175
+Info (10648): Verilog HDL Display System Task info at components_tb.v(177): 8-bit register_n after load: Q=00 (should be AA) File: C:/ECE2072/Project/components_tb.v Line: 177
+Info (10648): Verilog HDL Display System Task info at components_tb.v(180): 8-bit register_n hold: Q=00 (should still be AA) File: C:/ECE2072/Project/components_tb.v Line: 180
+Info (10648): Verilog HDL Display System Task info at components_tb.v(183): 8-bit register_n load new: Q=00 (should be 55) File: C:/ECE2072/Project/components_tb.v Line: 183
+Info (12128): Elaborating entity "sign_extend" for hierarchy "sign_extend:uut_sign_extend" File: C:/ECE2072/Project/components_tb.v Line: 16
+Info (12128): Elaborating entity "tick_FSM" for hierarchy "tick_FSM:uut_tick" File: C:/ECE2072/Project/components_tb.v Line: 22
 Info (10264): Verilog HDL Case Statement information at components.v(35): all case item expressions in this case statement are onehot File: C:/ECE2072/Project/components.v Line: 35
-Info (12128): Elaborating entity "multiplexer" for hierarchy "multiplexer:uut_mux" File: C:/ECE2072/Project/components_tb.v Line: 26
-Info (12128): Elaborating entity "ALU" for hierarchy "ALU:uut_alu" File: C:/ECE2072/Project/components_tb.v Line: 32
+Info (12128): Elaborating entity "multiplexer" for hierarchy "multiplexer:uut_mux" File: C:/ECE2072/Project/components_tb.v Line: 29
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:uut_alu" File: C:/ECE2072/Project/components_tb.v Line: 36
 Warning (10764): Verilog HDL warning at components.v(93): converting signed shift amount to unsigned File: C:/ECE2072/Project/components.v Line: 93
 Warning (10764): Verilog HDL warning at components.v(95): converting signed shift amount to unsigned File: C:/ECE2072/Project/components.v Line: 95
-Info (12128): Elaborating entity "register_n" for hierarchy "register_n:uut_reg" File: C:/ECE2072/Project/components_tb.v Line: 38
-Info (12128): Elaborating entity "register_n" for hierarchy "register_n:uut_reg8" File: C:/ECE2072/Project/components_tb.v Line: 44
+Info (12128): Elaborating entity "register_n" for hierarchy "register_n:uut_reg" File: C:/ECE2072/Project/components_tb.v Line: 43
+Info (12128): Elaborating entity "register_n" for hierarchy "register_n:uut_reg8" File: C:/ECE2072/Project/components_tb.v Line: 50
 Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 4728 megabytes
-    Info: Processing ended: Fri Oct 17 11:11:18 2025
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:22
+    Info: Peak virtual memory: 4717 megabytes
+    Info: Processing ended: Fri Oct 17 11:35:22 2025
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:24
 
 
