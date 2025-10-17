@@ -18,8 +18,8 @@ module simple_proc(
     wire [15:0] sign_ext_din;
     wire [15:0] mux_bus;
     wire [15:0] alu_result;
-    wire [3:0] mux_sel;
-    wire [2:0] alu_op;
+    reg [3:0] mux_sel;
+    reg [2:0] alu_op;
     wire [15:0] reg_G;
     reg r0_en, r1_en, r2_en, r3_en, r4_en, r5_en, r6_en, r7_en;
     reg [15:0] reg_in_data;
