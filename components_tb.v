@@ -9,41 +9,48 @@ Please enter your student ID:
 */
 module components_tb;
 
-    // --- sign_extend testbench ---
+    // sign_extend testbench
+    // This tests that the sign extension module correctly extends 9-bit signed values to 16 bits.
     reg [8:0] se_in;
     wire [15:0] se_out;
     sign_extend uut_sign_extend(.in(se_in), .ext(se_out));
 
-    // --- tick_FSM testbench ---
+    // tick_FSM testbench
+    // This tests that the tick FSM cycles through its four states and responds to reset and enable.
     reg clk, rst, enable;
     wire [3:0] tick;
     tick_FSM uut_tick(.rst(rst), .clk(clk), .enable(enable), .tick(tick));
 
-    // --- multiplexer testbench ---
+    // multiplexer testbench
+    // This tests that the multiplexer selects the correct input for each select value.
     reg [15:0] SignExtDin, R0, R1, R2, R3, R4, R5, R6, R7, G;
     reg [3:0] sel;
     wire [15:0] Bus;
     multiplexer uut_mux(.SignExtDin(SignExtDin), .R0(R0), .R1(R1), .R2(R2), .R3(R3), .R4(R4), .R5(R5), .R6(R6), .R7(R7), .G(G), .sel(sel), .Bus(Bus));
 
-    // --- ALU testbench ---
+    // ALU testbench
+    // This tests that the ALU performs all supported operations and ignores unsupported ones.
     reg [15:0] alu_a, alu_b;
     reg [2:0] alu_op;
     wire [15:0] alu_result;
     ALU uut_alu(.input_a(alu_a), .input_b(alu_b), .alu_op(alu_op), .result(alu_result));
 
-    // --- register_n testbench ---
+    // register_n testbench
+    // This tests that the register module loads, holds, and resets values correctly, and supports different widths.
     reg [15:0] reg_in;
     reg reg_load, reg_rst, reg_clk;
     wire [15:0] reg_out;
     register_n uut_reg(.data_in(reg_in), .r_in(reg_load), .clk(reg_clk), .Q(reg_out), .rst(reg_rst));
 
-    // --- 8-bit register_n test signals ---
+    // 8-bit register_n test signals
+    // This tests the register_n module with a width of 8 bits.
     reg [7:0] reg8_in;
     wire [7:0] reg8_out;
     reg reg8_load, reg8_rst, reg8_clk;
     register_n #(.N(8)) uut_reg8(.data_in(reg8_in), .r_in(reg8_load), .clk(reg8_clk), .Q(reg8_out), .rst(reg8_rst));
 
-    // Use finite loops for clock generation to avoid synthesis/simulation errors
+    // Clock generation for tick_FSM
+    // We use a finite loop to avoid simulation errors in Quartus.
     integer i;
     initial begin
         clk = 0;
@@ -52,6 +59,7 @@ module components_tb;
         end
     end
 
+    // Clock generation for 16-bit register_n
     initial begin
         reg_clk = 0;
         for (i = 0; i < 500; i = i + 1) begin
@@ -59,6 +67,7 @@ module components_tb;
         end
     end
 
+    // Clock generation for 8-bit register_n
     initial begin
         reg8_clk = 0;
         for (i = 0; i < 500; i = i + 1) begin
@@ -68,24 +77,29 @@ module components_tb;
 
     // sign_extend tests
     initial begin
-        $display("==== sign_extend tests ====");
+        // Test a positive value to check zero extension.
         se_in = 9'b000000101; #1;
         $display("sign_extend +5: %b (should be 0000000000000101)", se_out);
+        // Test a negative value to check sign extension.
         se_in = 9'b111111011; #1;
         $display("sign_extend -5: %b (should be 1111111111111011)", se_out);
+        // Test zero to confirm extension does not alter value.
         se_in = 9'b000000000; #1;
         $display("sign_extend 0: %b (should be 0000000000000000)", se_out);
+        // Test the most negative value to check upper bound.
         se_in = 9'b100000000; #1;
         $display("sign_extend -256: %b (should be 1111111110000000)", se_out);
+        // Test the most positive value to check lower bound.
         se_in = 9'b011111111; #1;
         $display("sign_extend +255: %b (should be 0000000011111111)", se_out);
     end
 
     // tick_FSM tests
     initial begin
-        $display("==== tick_FSM tests ====");
+        // Test reset to ensure FSM starts at tick 1.
         rst = 1; enable = 0; #10;
         $display("After reset, tick = %b (should be 0001)", tick);
+        // Test enable to ensure FSM advances on clock.
         rst = 0; enable = 1; #10;
         repeat (1) @(posedge clk);
         $display("Tick after 1 clock: %b (should be 0010)", tick);
@@ -95,15 +109,17 @@ module components_tb;
         $display("Tick after 3 clocks: %b (should be 1000)", tick);
         repeat (1) @(posedge clk);
         $display("Tick after 4 clocks: %b (should wrap to 0001)", tick);
+        // Test with enable low to ensure FSM does not advance.
         enable = 0; repeat (2) @(posedge clk);
         $display("Tick with enable low: %b (should remain 0001)", tick);
     end
 
     // multiplexer tests
     initial begin
-        $display("==== multiplexer tests ====");
+        // Set unique values for each input so we can verify selection.
         SignExtDin = 16'hAAAA; R0 = 16'h0001; R1 = 16'h0002; R2 = 16'h0003;
         R3 = 16'h0004; R4 = 16'h0005; R5 = 16'h0006; R6 = 16'h0007; R7 = 16'h0008; G = 16'hFFFF;
+        // Test each select value to confirm correct routing.
         sel = 4'b0000; #1; $display("MUX sel=0000: Bus=%h (should be AAAA, SignExtDin)", Bus);
         sel = 4'b0001; #1; $display("MUX sel=0001: Bus=%h (should be 0001, R0)", Bus);
         sel = 4'b0010; #1; $display("MUX sel=0010: Bus=%h (should be 0002, R1)", Bus);
@@ -114,43 +130,55 @@ module components_tb;
         sel = 4'b0111; #1; $display("MUX sel=0111: Bus=%h (should be 0007, R6)", Bus);
         sel = 4'b1000; #1; $display("MUX sel=1000: Bus=%h (should be 0008, R7)", Bus);
         sel = 4'b1001; #1; $display("MUX sel=1001: Bus=%h (should be FFFF, G)", Bus);
+        // Test invalid select value to check default output.
         sel = 4'b1010; #1; $display("MUX sel=1010: Bus=%h (should be 0000, invalid select)", Bus);
     end
 
     // ALU tests
     initial begin
-        $display("==== ALU tests ====");
+        // Test multiplication to verify ALU multiplies correctly.
         alu_a = 16'd10; alu_b = 16'd3; alu_op = 3'b000; #1;
         $display("ALU MUL: 10*3 = %d (should be 30)", alu_result);
+        // Test addition to verify ALU adds correctly.
         alu_op = 3'b001; #1;
         $display("ALU ADD: 10+3 = %d (should be 13)", alu_result);
+        // Test subtraction to verify ALU subtracts correctly.
         alu_op = 3'b010; #1;
         $display("ALU SUB: 10-3 = %d (should be 7)", alu_result);
+        // Test shift left to verify ALU shifts left for positive shift.
         alu_op = 3'b011; alu_a = 16'd2; alu_b = 16'b0000_0000_0000_1111; #1;
         $display("ALU SHIFT LEFT: 15<<2 = %b (should be 0000000000111100)", alu_result);
+        // Test shift right to verify ALU shifts right for negative shift.
         alu_op = 3'b011; alu_a = -2; alu_b = 16'b0000_0000_0000_1111; #1;
         $display("ALU SHIFT RIGHT: 15>>2 = %b (should be 0000000000000011)", alu_result);
+        // Test don't care to verify ALU outputs zero.
         alu_op = 3'b100; #1;
         $display("ALU don't care: result = %d (should be 0)", alu_result);
     end
 
     // register_n tests
     initial begin
-        $display("==== register_n tests ====");
+        // Test reset to ensure register clears to zero.
         reg_rst = 1; reg_load = 0; reg_in = 16'h1234; #10;
         $display("register_n after reset: Q=%h (should be 0000)", reg_out);
+        // Test load to ensure register stores input value.
         reg_rst = 0; reg_load = 1; #10;
         $display("register_n after load: Q=%h (should be 1234)", reg_out);
+        // Test hold to ensure register retains value when not loading.
         reg_load = 0; reg_in = 16'h5678; #10;
         $display("register_n hold: Q=%h (should still be 1234)", reg_out);
+        // Test load new value to ensure register updates.
         reg_load = 1; #10;
         $display("register_n load new: Q=%h (should be 5678)", reg_out);
+        // Test 8-bit register reset and load to check parameterization.
         reg8_rst = 1; reg8_load = 0; reg8_in = 8'hAA; #10;
         $display("8-bit register_n after reset: Q=%h (should be 00)", reg8_out);
         reg8_rst = 0; reg8_load = 1; #10;
         $display("8-bit register_n after load: Q=%h (should be AA)", reg8_out);
+        // Test hold for 8-bit register.
         reg8_load = 0; reg8_in = 8'h55; #10;
         $display("8-bit register_n hold: Q=%h (should still be AA)", reg8_out);
+        // Test load new value for 8-bit register.
         reg8_load = 1; #10;
         $display("8-bit register_n load new: Q=%h (should be 55)",reg8_out);
     end
