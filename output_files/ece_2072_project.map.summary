@@ -1,7 +1,7 @@
-Analysis & Elaboration Status : Successful - Fri Oct 17 11:35:22 2025
+Analysis & Synthesis Status : Failed - Fri Oct 17 11:55:01 2025
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : ece_2072_project
-Top-level Entity Name : components_tb
+Top-level Entity Name : top_level_simple_proc
 Family : MAX 10
 Total logic elements : N/A until Partition Merge
     Total combinational functions : N/A until Partition Merge
