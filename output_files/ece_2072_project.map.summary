@@ -1,16 +1,16 @@
-Analysis & Synthesis Status : Successful - Fri Oct 17 11:56:54 2025
+Analysis & Synthesis Status : Successful - Fri Oct 17 16:21:54 2025
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : ece_2072_project
 Top-level Entity Name : top_level_simple_proc
 Family : MAX 10
-Total logic elements : 491
-    Total combinational functions : 370
-    Dedicated logic registers : 157
-Total registers : 157
+Total logic elements : 267
+    Total combinational functions : 156
+    Dedicated logic registers : 167
+Total registers : 167
 Total pins : 28
 Total virtual pins : 0
 Total memory bits : 0
-Embedded Multiplier 9-bit elements : 2
+Embedded Multiplier 9-bit elements : 0
 Total PLLs : 0
 UFM blocks : 0
 ADC blocks : 0

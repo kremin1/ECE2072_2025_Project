@@ -1,5 +1,5 @@
 Assembler report for ece_2072_project
-Fri Oct 17 11:57:40 2025
+Fri Oct 17 16:22:14 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -37,7 +37,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Fri Oct 17 11:57:40 2025 ;
+; Assembler Status      ; Successful - Fri Oct 17 16:22:14 2025 ;
 ; Revision Name         ; ece_2072_project                      ;
 ; Top-level Entity Name ; top_level_simple_proc                 ;
 ; Family                ; MAX 10                                ;
@@ -66,8 +66,8 @@ refer to the applicable agreement for further details.
 +----------------+---------------------------------------------------------------+
 ; Option         ; Setting                                                       ;
 +----------------+---------------------------------------------------------------+
-; JTAG usercode  ; 0x002B7C06                                                    ;
-; Checksum       ; 0x002B7C06                                                    ;
+; JTAG usercode  ; 0x002944FB                                                    ;
+; Checksum       ; 0x002944FB                                                    ;
 +----------------+---------------------------------------------------------------+
 
 
@@ -77,15 +77,15 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Fri Oct 17 11:57:36 2025
+    Info: Processing started: Fri Oct 17 16:22:11 2025
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off ece_2072_project -c ece_2072_project
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4690 megabytes
-    Info: Processing ended: Fri Oct 17 11:57:40 2025
-    Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:04
+    Info: Peak virtual memory: 4692 megabytes
+    Info: Processing ended: Fri Oct 17 16:22:14 2025
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
 
 

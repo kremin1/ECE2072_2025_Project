@@ -18,30 +18,22 @@ endmodule
 
 
 
-module tick_FSM(rst, clk, enable, tick);
-    /* 
-     * This module implements a tick FSM that will be used to
-     * control the actions of the control unit
-     * One-hot encoding: tick = 4'b0001, 4'b0010, 4'b0100, 4'b1000
-     */
+module tick_FSM(
+    input  wire clk,
+    input  wire rst,
+    input  wire enable,
+    output reg  [3:0] tick
+);
 
-    input rst, clk, enable;
-    output reg [3:0] tick;
-
-    always @(posedge clk or posedge rst) begin
+    always @(posedge clk or posedge rst)
         if (rst)
-            tick <= 4'b0001; // Start at tick 1
-        else if (enable) begin
-            case (tick)
-                4'b0001: tick <= 4'b0010; // Tick 2
-                4'b0010: tick <= 4'b0100; // Tick 3
-                4'b0100: tick <= 4'b1000; // Tick 4
-                4'b1000: tick <= 4'b0001; // Back to Tick 1
-                default: tick <= 4'b0001; // Default to Tick 1 on error
-            endcase
-        end
-    end
+            tick <= 4'b0001;
+        else if (enable)
+            tick <= {tick[2:0], tick[3]};
 endmodule
+
+
+
 
 module multiplexer(SignExtDin, R0, R1, R2, R3, R4, R5, R6, R7, G, sel, Bus);
     /* 
@@ -90,15 +82,15 @@ module ALU (input_a, input_b, alu_op, result);
             3'b010: result = input_a - input_b; // Subtraction
             3'b011: begin // Signed shift
                 if ($signed(input_a) >= 0)
-        			result = input_b <<< $signed(input_a);   // left shift
+        			result = $signed(input_b) <<< $signed(input_a);   // left shift
     			else
-        			result = input_b >>> -$signed(input_a);  // right shift
+        			result = $signed(input_b) >>> -$signed(input_a);  // arithmetic right shift
             end
             default: result = 16'b0; // Don't care
         endcase
     end
-
 endmodule
+
 
 module register_n(data_in, r_in, clk, Q, rst);
 
@@ -121,19 +113,12 @@ module register_n(data_in, r_in, clk, Q, rst);
     output reg [N-1:0] Q;
 
     // Implement register logic
-    always @(posedge clk) begin
-        if (rst) begin
-            Q <= {N{1'b0}};         // reset register to 0
-        end 
-        else if (r_in) begin
-            Q <= data_in;           // load new data
-        end
-		else begin
-    	Q <= Q;   // hold previous value 
-
-        // else: retain previous value
-    end
-end
+    always @(posedge clk)
+		begin
+			 if (rst)
+				  Q <= {N{1'b0}};
+			 else if (r_in)
+				  Q <= data_in;
+		end
 
 endmodule
-
