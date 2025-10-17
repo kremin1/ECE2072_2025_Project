@@ -5,19 +5,19 @@ This file contains Verilog code to implement the CPU.
 Please enter your student ID:
 
 */
-module simple_proc(clk, rst, din, bus, R0, R1, R2, R3, R4, R5, R6, R7);
-
-    // Inputs and outputs
-    input clk, rst;
-    input [8:0] din;
-    output [15:0] bus;
-    output [15:0] R0, R1, R2, R3, R4, R5, R6, R7;
+module simple_proc(
+    input clk,
+    input rst,
+    input [8:0] din,
+    output [15:0] bus,
+    output [15:0] R0, R1, R2, R3, R4, R5, R6, R7,
+    output [3:0] tick // <-- Added tick output for top-level module
+);
 
     // Internal wires and registers
     wire [15:0] sign_ext_din;
     wire [15:0] mux_bus;
     wire [15:0] alu_result;
-    wire [3:0] tick;
     wire [3:0] mux_sel;
     wire [2:0] alu_op;
     wire [15:0] reg_G;
@@ -96,11 +96,9 @@ module simple_proc(clk, rst, din, bus, R0, R1, R2, R3, R4, R5, R6, R7);
         // opcode: IR[8:6], dest: IR[5:3], src/immed: IR[2:0] or IR[5:0]
         case (tick)
             4'b0001: begin // Tick 1: Fetch
-                // Load instruction into IR
                 IR_in = 1;
             end
             4'b0010: begin // Tick 2: Decode
-                // Prepare operands based on instruction
                 case (IR[8:6])
                     3'b000: begin // movi: Move immediate to register
                         mux_sel = 4'b0000; // Select sign_ext_din
@@ -145,11 +143,9 @@ module simple_proc(clk, rst, din, bus, R0, R1, R2, R3, R4, R5, R6, R7);
                 endcase
             end
             4'b0100: begin // Tick 3: Execute
-                // Store ALU result in G register
                 G_in = 1;
             end
             4'b1000: begin // Tick 4: Writeback
-                // Write result from G register to destination register
                 mux_sel = 4'b1001; // Select G register
                 reg_in_data = mux_bus;
                 case (IR[5:3])
