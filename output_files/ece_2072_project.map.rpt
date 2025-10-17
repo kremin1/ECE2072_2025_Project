@@ -1,5 +1,5 @@
-Analysis & Synthesis report for ece_2072_project
-Fri Oct 17 10:20:31 2025
+Analysis & Elaboration report for ece_2072_project
+Fri Oct 17 11:11:18 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -7,10 +7,18 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Synthesis Summary
-  3. Analysis & Synthesis Settings
-  4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  2. Analysis & Elaboration Summary
+  3. Parallel Compilation
+  4. Parameter Settings for User Entity Instance: register_n:uut_reg
+  5. Parameter Settings for User Entity Instance: register_n:uut_reg8
+  6. Analysis & Elaboration Settings
+  7. Port Connectivity Checks: "register_n:uut_reg8"
+  8. Port Connectivity Checks: "register_n:uut_reg"
+  9. Port Connectivity Checks: "ALU:uut_alu"
+ 10. Port Connectivity Checks: "multiplexer:uut_mux"
+ 11. Port Connectivity Checks: "tick_FSM:uut_tick"
+ 12. Port Connectivity Checks: "sign_extend:uut_sign_extend"
+ 13. Analysis & Elaboration Messages
 
 
 
@@ -34,12 +42,12 @@ refer to the applicable agreement for further details.
 
 
 +----------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                     ;
+; Analysis & Elaboration Summary                                                   ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Fri Oct 17 10:20:31 2025           ;
+; Analysis & Elaboration Status      ; Successful - Fri Oct 17 11:11:18 2025       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; ece_2072_project                            ;
-; Top-level Entity Name              ; components                                  ;
+; Top-level Entity Name              ; components_tb                               ;
 ; Family                             ; MAX 10                                      ;
 ; Total logic elements               ; N/A until Partition Merge                   ;
 ;     Total combinational functions  ; N/A until Partition Merge                   ;
@@ -55,13 +63,49 @@ refer to the applicable agreement for further details.
 +------------------------------------+---------------------------------------------+
 
 
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 32          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: register_n:uut_reg ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; N              ; 16    ; Signed Integer                         ;
++----------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: register_n:uut_reg8 ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; N              ; 8     ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Settings                                                                              ;
+; Analysis & Elaboration Settings                                                                            ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; 10M50DAF484C7G     ;                    ;
-; Top-level entity name                                            ; components         ; ece_2072_project   ;
+; Top-level entity name                                            ; components_tb      ; ece_2072_project   ;
 ; Family name                                                      ; MAX 10             ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -141,48 +185,134 @@ refer to the applicable agreement for further details.
 +------------------------------------------------------------------+--------------------+--------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 32          ;
-; Maximum allowed            ; 16          ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-+----------------------------+-------------+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "register_n:uut_reg8"                                                                ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Q    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+-------------------------------+
-; Analysis & Synthesis Messages ;
-+-------------------------------+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "register_n:uut_reg"                                                                 ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Q    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:uut_alu"                                                                          ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; result ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "multiplexer:uut_mux"                                                                ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Bus  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "tick_FSM:uut_tick"                                                                  ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; tick ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sign_extend:uut_sign_extend"                                                        ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; ext  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------+
+; Analysis & Elaboration Messages ;
++---------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Synthesis
+Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Fri Oct 17 10:20:23 2025
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ece_2072_project -c ece_2072_project
+    Info: Processing started: Fri Oct 17 11:11:08 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ece_2072_project -c ece_2072_project --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
-Error (10170): Verilog HDL syntax error at proc_tb.v(9) near text: ".";  expecting ";". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: C:/ECE2072/Project/proc_tb.v Line: 9
-Info (12021): Found 0 design units, including 0 entities, in source file proc_tb.v
-Error (10170): Verilog HDL syntax error at proc_extension_tb.v(9) near text: ".";  expecting ";". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: C:/ECE2072/Project/proc_extension_tb.v Line: 9
-Info (12021): Found 0 design units, including 0 entities, in source file proc_extension_tb.v
-Info (12021): Found 0 design units, including 0 entities, in source file proc_extension.v
-Error (10170): Verilog HDL syntax error at proc.v(31) near text: ")";  expecting an operand. Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: C:/ECE2072/Project/proc.v Line: 31
-Error (10112): Ignored design unit "simple_proc" at proc.v(8) due to previous errors File: C:/ECE2072/Project/proc.v Line: 8
-Info (12021): Found 0 design units, including 0 entities, in source file proc.v
-Error (10170): Verilog HDL syntax error at components_tb.v(10) near text: ".";  expecting ";". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: C:/ECE2072/Project/components_tb.v Line: 10
-Info (12021): Found 0 design units, including 0 entities, in source file components_tb.v
-Error (10171): Verilog HDL syntax error at components.v(140) near end of file ;  expecting "endmodule" File: C:/ECE2072/Project/components.v Line: 140
-Info (12021): Found 0 design units, including 0 entities, in source file components.v
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 6 errors, 2 warnings
-    Error: Peak virtual memory: 4716 megabytes
-    Error: Processing ended: Fri Oct 17 10:20:31 2025
-    Error: Elapsed time: 00:00:08
-    Error: Total CPU time (on all processors): 00:00:17
+Info (12021): Found 1 design units, including 1 entities, in source file components_tb.v
+    Info (12023): Found entity 1: components_tb File: C:/ECE2072/Project/components_tb.v Line: 10
+Info (12021): Found 5 design units, including 5 entities, in source file components.v
+    Info (12023): Found entity 1: sign_extend File: C:/ECE2072/Project/components.v Line: 9
+    Info (12023): Found entity 2: tick_FSM File: C:/ECE2072/Project/components.v Line: 21
+    Info (12023): Found entity 3: multiplexer File: C:/ECE2072/Project/components.v Line: 46
+    Info (12023): Found entity 4: ALU File: C:/ECE2072/Project/components.v Line: 72
+    Info (12023): Found entity 5: register_n File: C:/ECE2072/Project/components.v Line: 103
+Info (12127): Elaborating entity "components_tb" for the top level hierarchy
+Info (10648): Verilog HDL Display System Task info at components_tb.v(71): ==== sign_extend tests ==== File: C:/ECE2072/Project/components_tb.v Line: 71
+Info (10648): Verilog HDL Display System Task info at components_tb.v(73): sign_extend +5: ................ (should be 0000000000000101) File: C:/ECE2072/Project/components_tb.v Line: 73
+Info (10648): Verilog HDL Display System Task info at components_tb.v(75): sign_extend -5: ................ (should be 1111111111111011) File: C:/ECE2072/Project/components_tb.v Line: 75
+Info (10648): Verilog HDL Display System Task info at components_tb.v(77): sign_extend 0: ................ (should be 0000000000000000) File: C:/ECE2072/Project/components_tb.v Line: 77
+Info (10648): Verilog HDL Display System Task info at components_tb.v(79): sign_extend -256: ................ (should be 1111111110000000) File: C:/ECE2072/Project/components_tb.v Line: 79
+Info (10648): Verilog HDL Display System Task info at components_tb.v(81): sign_extend +255: ................ (should be 0000000011111111) File: C:/ECE2072/Project/components_tb.v Line: 81
+Info (10648): Verilog HDL Display System Task info at components_tb.v(86): ==== tick_FSM tests ==== File: C:/ECE2072/Project/components_tb.v Line: 86
+Info (10648): Verilog HDL Display System Task info at components_tb.v(88): After reset, tick = .... (should be 0001) File: C:/ECE2072/Project/components_tb.v Line: 88
+Info (10648): Verilog HDL Display System Task info at components_tb.v(91): Tick after 1 clock: .... (should be 0010) File: C:/ECE2072/Project/components_tb.v Line: 91
+Info (10648): Verilog HDL Display System Task info at components_tb.v(93): Tick after 2 clocks: .... (should be 0100) File: C:/ECE2072/Project/components_tb.v Line: 93
+Info (10648): Verilog HDL Display System Task info at components_tb.v(95): Tick after 3 clocks: .... (should be 1000) File: C:/ECE2072/Project/components_tb.v Line: 95
+Info (10648): Verilog HDL Display System Task info at components_tb.v(97): Tick after 4 clocks: .... (should wrap to 0001) File: C:/ECE2072/Project/components_tb.v Line: 97
+Info (10648): Verilog HDL Display System Task info at components_tb.v(99): Tick with enable low: .... (should remain 0001) File: C:/ECE2072/Project/components_tb.v Line: 99
+Info (10648): Verilog HDL Display System Task info at components_tb.v(104): ==== multiplexer tests ==== File: C:/ECE2072/Project/components_tb.v Line: 104
+Info (10648): Verilog HDL Display System Task info at components_tb.v(107): MUX sel=0000: Bus=0000 (should be AAAA, SignExtDin) File: C:/ECE2072/Project/components_tb.v Line: 107
+Info (10648): Verilog HDL Display System Task info at components_tb.v(108): MUX sel=0001: Bus=0000 (should be 0001, R0) File: C:/ECE2072/Project/components_tb.v Line: 108
+Info (10648): Verilog HDL Display System Task info at components_tb.v(109): MUX sel=0010: Bus=0000 (should be 0002, R1) File: C:/ECE2072/Project/components_tb.v Line: 109
+Info (10648): Verilog HDL Display System Task info at components_tb.v(110): MUX sel=0011: Bus=0000 (should be 0003, R2) File: C:/ECE2072/Project/components_tb.v Line: 110
+Info (10648): Verilog HDL Display System Task info at components_tb.v(111): MUX sel=0100: Bus=0000 (should be 0004, R3) File: C:/ECE2072/Project/components_tb.v Line: 111
+Info (10648): Verilog HDL Display System Task info at components_tb.v(112): MUX sel=0101: Bus=0000 (should be 0005, R4) File: C:/ECE2072/Project/components_tb.v Line: 112
+Info (10648): Verilog HDL Display System Task info at components_tb.v(113): MUX sel=0110: Bus=0000 (should be 0006, R5) File: C:/ECE2072/Project/components_tb.v Line: 113
+Info (10648): Verilog HDL Display System Task info at components_tb.v(114): MUX sel=0111: Bus=0000 (should be 0007, R6) File: C:/ECE2072/Project/components_tb.v Line: 114
+Info (10648): Verilog HDL Display System Task info at components_tb.v(115): MUX sel=1000: Bus=0000 (should be 0008, R7) File: C:/ECE2072/Project/components_tb.v Line: 115
+Info (10648): Verilog HDL Display System Task info at components_tb.v(116): MUX sel=1001: Bus=0000 (should be FFFF, G) File: C:/ECE2072/Project/components_tb.v Line: 116
+Info (10648): Verilog HDL Display System Task info at components_tb.v(117): MUX sel=1010: Bus=0000 (should be 0000, invalid select) File: C:/ECE2072/Project/components_tb.v Line: 117
+Info (10648): Verilog HDL Display System Task info at components_tb.v(122): ==== ALU tests ==== File: C:/ECE2072/Project/components_tb.v Line: 122
+Info (10648): Verilog HDL Display System Task info at components_tb.v(124): ALU MUL: 10*3 =      0 (should be 30) File: C:/ECE2072/Project/components_tb.v Line: 124
+Info (10648): Verilog HDL Display System Task info at components_tb.v(126): ALU ADD: 10+3 =      0 (should be 13) File: C:/ECE2072/Project/components_tb.v Line: 126
+Info (10648): Verilog HDL Display System Task info at components_tb.v(128): ALU SUB: 10-3 =      0 (should be 7) File: C:/ECE2072/Project/components_tb.v Line: 128
+Info (10648): Verilog HDL Display System Task info at components_tb.v(130): ALU SHIFT LEFT: 15<<2 = ................ (should be 0000000000111100) File: C:/ECE2072/Project/components_tb.v Line: 130
+Warning (10230): Verilog HDL assignment warning at components_tb.v(131): truncated value with size 32 to match size of target (16) File: C:/ECE2072/Project/components_tb.v Line: 131
+Info (10648): Verilog HDL Display System Task info at components_tb.v(132): ALU SHIFT RIGHT: 15>>2 = ................ (should be 0000000000000011) File: C:/ECE2072/Project/components_tb.v Line: 132
+Info (10648): Verilog HDL Display System Task info at components_tb.v(134): ALU don't care: result =      0 (should be 0) File: C:/ECE2072/Project/components_tb.v Line: 134
+Info (10648): Verilog HDL Display System Task info at components_tb.v(139): ==== register_n tests ==== File: C:/ECE2072/Project/components_tb.v Line: 139
+Info (10648): Verilog HDL Display System Task info at components_tb.v(141): register_n after reset: Q=0000 (should be 0000) File: C:/ECE2072/Project/components_tb.v Line: 141
+Info (10648): Verilog HDL Display System Task info at components_tb.v(143): register_n after load: Q=0000 (should be 1234) File: C:/ECE2072/Project/components_tb.v Line: 143
+Info (10648): Verilog HDL Display System Task info at components_tb.v(145): register_n hold: Q=0000 (should still be 1234) File: C:/ECE2072/Project/components_tb.v Line: 145
+Info (10648): Verilog HDL Display System Task info at components_tb.v(147): register_n load new: Q=0000 (should be 5678) File: C:/ECE2072/Project/components_tb.v Line: 147
+Info (10648): Verilog HDL Display System Task info at components_tb.v(149): 8-bit register_n after reset: Q=00 (should be 00) File: C:/ECE2072/Project/components_tb.v Line: 149
+Info (10648): Verilog HDL Display System Task info at components_tb.v(151): 8-bit register_n after load: Q=00 (should be AA) File: C:/ECE2072/Project/components_tb.v Line: 151
+Info (10648): Verilog HDL Display System Task info at components_tb.v(153): 8-bit register_n hold: Q=00 (should still be AA) File: C:/ECE2072/Project/components_tb.v Line: 153
+Info (10648): Verilog HDL Display System Task info at components_tb.v(155): 8-bit register_n load new: Q=00 (should be 55) File: C:/ECE2072/Project/components_tb.v Line: 155
+Info (12128): Elaborating entity "sign_extend" for hierarchy "sign_extend:uut_sign_extend" File: C:/ECE2072/Project/components_tb.v Line: 15
+Info (12128): Elaborating entity "tick_FSM" for hierarchy "tick_FSM:uut_tick" File: C:/ECE2072/Project/components_tb.v Line: 20
+Info (10264): Verilog HDL Case Statement information at components.v(35): all case item expressions in this case statement are onehot File: C:/ECE2072/Project/components.v Line: 35
+Info (12128): Elaborating entity "multiplexer" for hierarchy "multiplexer:uut_mux" File: C:/ECE2072/Project/components_tb.v Line: 26
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:uut_alu" File: C:/ECE2072/Project/components_tb.v Line: 32
+Warning (10764): Verilog HDL warning at components.v(93): converting signed shift amount to unsigned File: C:/ECE2072/Project/components.v Line: 93
+Warning (10764): Verilog HDL warning at components.v(95): converting signed shift amount to unsigned File: C:/ECE2072/Project/components.v Line: 95
+Info (12128): Elaborating entity "register_n" for hierarchy "register_n:uut_reg" File: C:/ECE2072/Project/components_tb.v Line: 38
+Info (12128): Elaborating entity "register_n" for hierarchy "register_n:uut_reg8" File: C:/ECE2072/Project/components_tb.v Line: 44
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 4728 megabytes
+    Info: Processing ended: Fri Oct 17 11:11:18 2025
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:22
 
 

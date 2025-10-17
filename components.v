@@ -98,7 +98,7 @@ module ALU (input_a, input_b, alu_op, result);
         endcase
     end
 
-
+endmodule
 
 module register_n(data_in, r_in, clk, Q, rst);
 

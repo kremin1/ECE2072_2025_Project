@@ -1,0 +1,144 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/ECE2072/Project/simulation/modelsim
+vALU
+Z1 !s110 1760659909
+!i10b 1
+!s100 ElV7=T=VeZ``Bk`CR3lDk2
+IMM2OmLAlkiWn7NjIPH`^C3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1760659489
+Z4 8C:/ECE2072/Project/components.v
+Z5 FC:/ECE2072/Project/components.v
+L0 72
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1760659909.000000
+Z8 !s107 C:/ECE2072/Project/components.v|
+Z9 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/ECE2072/Project|C:/ECE2072/Project/components.v|
+!i113 1
+Z10 o-vlog01compat -work work
+Z11 !s92 -vlog01compat -work work +incdir+C:/ECE2072/Project
+Z12 tCvgOpt 0
+n@a@l@u
+vcomponents_tb
+R1
+!i10b 1
+!s100 gk<1M=SjXUJ4BYeDQG3GD0
+IdJM0X8<fnB9HSC7SE5YGF1
+R2
+R0
+w1760659859
+8C:/ECE2072/Project/components_tb.v
+FC:/ECE2072/Project/components_tb.v
+L0 10
+R6
+r1
+!s85 0
+31
+R7
+!s107 C:/ECE2072/Project/components_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/ECE2072/Project|C:/ECE2072/Project/components_tb.v|
+!i113 1
+R10
+R11
+R12
+vmultiplexer
+R1
+!i10b 1
+!s100 [[:hT]be8;R<dT05nV>UG2
+IejJ941AjF@QfjCOfA`[km0
+R2
+R0
+R3
+R4
+R5
+L0 46
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
+vregister_n
+R1
+!i10b 1
+!s100 mA>>`1h4GjX2dezSmGX`A3
+I_^L=Zi]WOk6Rfk^[>34X32
+R2
+R0
+R3
+R4
+R5
+L0 103
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
+vsign_extend
+R1
+!i10b 1
+!s100 PzO9SIT357gG^^F>OhTgz0
+IHR=7`V5_``h1KHQ3M9R0F0
+R2
+R0
+R3
+R4
+R5
+L0 9
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
+vtick_FSM
+R1
+!i10b 1
+!s100 ML1F>4i9D6^<NA5TjKQ6W1
+Imf4zU_WAS_J:i@D9^U;d^0
+R2
+R0
+R3
+R4
+R5
+L0 21
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
+ntick_@f@s@m

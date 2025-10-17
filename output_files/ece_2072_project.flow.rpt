@@ -1,5 +1,5 @@
 Flow report for ece_2072_project
-Fri Oct 17 10:20:31 2025
+Fri Oct 17 11:11:18 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,10 +40,10 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Flow Failed - Fri Oct 17 10:20:31 2025      ;
+; Flow Status                        ; Successful - Fri Oct 17 11:11:18 2025       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; ece_2072_project                            ;
-; Top-level Entity Name              ; components                                  ;
+; Top-level Entity Name              ; components_tb                               ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C7G                              ;
 ; Timing Models                      ; Final                                       ;
@@ -66,51 +66,53 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/17/2025 10:20:24 ;
+; Start date & time ; 10/17/2025 11:11:09 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; ece_2072_project    ;
 +-------------------+---------------------+
 
 
++----------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                 ;
++-------------------------------------+----------------------------------------+------------------+---------------+----------------+
+; Assignment Name                     ; Value                                  ; Default Value    ; Entity Name   ; Section Id     ;
++-------------------------------------+----------------------------------------+------------------+---------------+----------------+
+; COMPILER_SIGNATURE_ID               ; 125381177268247.176065986938716        ; --               ; --            ; --             ;
+; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                            ; --               ; --            ; eda_simulation ;
+; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)              ; <None>           ; --            ; --             ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --               ; --            ; --             ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --               ; --            ; --             ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --               ; components_tb ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --               ; components_tb ; Top            ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --               ; components_tb ; Top            ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --               ; --            ; --             ;
+; TOP_LEVEL_ENTITY                    ; components_tb                          ; ece_2072_project ; --            ; --             ;
++-------------------------------------+----------------------------------------+------------------+---------------+----------------+
+
+
 +----------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                           ;
-+-------------------------------------+----------------------------------------+------------------+-------------+------------+
-; Assignment Name                     ; Value                                  ; Default Value    ; Entity Name ; Section Id ;
-+-------------------------------------+----------------------------------------+------------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 125381177268247.176065682331152        ; --               ; --          ; --         ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --               ; --          ; --         ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --               ; --          ; --         ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --               ; components  ; Top        ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --               ; components  ; Top        ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --               ; components  ; Top        ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --               ; --          ; --         ;
-; TOP_LEVEL_ENTITY                    ; components                             ; ece_2072_project ; --          ; --         ;
-+-------------------------------------+----------------------------------------+------------------+-------------+------------+
+; Flow Elapsed Time                                                                                                          ;
++------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name            ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Elaboration ; 00:00:10     ; 1.0                     ; 4728 MB             ; 00:00:22                           ;
+; Total                  ; 00:00:10     ; --                      ; --                  ; 00:00:22                           ;
++------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------+
-; Flow Elapsed Time                                                                                                        ;
-+----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
-+----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:08     ; 1.0                     ; 4716 MB             ; 00:00:17                           ;
-; Total                ; 00:00:08     ; --                      ; --                  ; 00:00:17                           ;
-+----------------------+--------------+-------------------------+---------------------+------------------------------------+
-
-
-+------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                    ;
-+----------------------+------------------+------------+------------+----------------+
-; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
-+----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; kremin1          ; Windows 10 ; 10.0       ; x86_64         ;
-+----------------------+------------------+------------+------------+----------------+
++--------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                      ;
++------------------------+------------------+------------+------------+----------------+
+; Module Name            ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++------------------------+------------------+------------+------------+----------------+
+; Analysis & Elaboration ; kremin1          ; Windows 10 ; 10.0       ; x86_64         ;
++------------------------+------------------+------------+------------+----------------+
 
 
 ------------
 ; Flow Log ;
 ------------
-quartus_map --read_settings_files=on --write_settings_files=off ece_2072_project -c ece_2072_project
+quartus_map --read_settings_files=on --write_settings_files=off ece_2072_project -c ece_2072_project --analysis_and_elaboration
 
 
 
